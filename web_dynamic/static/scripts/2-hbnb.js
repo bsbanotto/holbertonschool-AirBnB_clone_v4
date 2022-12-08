@@ -1,7 +1,6 @@
 $(document).ready(function() {
   const amenities = [];
   const amenitiesName = [];
-  const url = 'http://0.0.0.0:5001/api/v1/status/';
   $('li :checkbox').change(function() {
     if (this.checked) {
       amenities.push($(this).attr('data-id'));
@@ -12,6 +11,7 @@ $(document).ready(function() {
     }
     $('.amenities h4').html(amenitiesName.join(', '));
   });
+  const url = 'http://0.0.0.0:5001/api/v1/status/';
   $.get(url, function (data) {
     if (data.status === 'OK') {
       $('#api_status').addClass('available');
