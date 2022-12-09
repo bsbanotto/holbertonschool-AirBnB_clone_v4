@@ -13,7 +13,7 @@ $(document).ready(function () {
     $('.amenities h4').html(amenitiesName.join(', '));
     });
     //This is the stuff for task 3
-    const url = 'http://0.0.0.0:5001/api/v1/status/';
+    const url = 'http://6e2cb033d6bc.a993185a.hbtn-cod.io:5001/api/v1/status/';
     $.get(url, function (data) {
       if (data.status === 'OK') {
         $('#api_status').addClass('available');
@@ -23,7 +23,7 @@ $(document).ready(function () {
     });
     //Stuff for task 4 goes here
     $.ajax({
-      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      url: 'http://6e2cb033d6bc.a993185a.hbtn-cod.io:5001/api/v1/places_search/',
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
