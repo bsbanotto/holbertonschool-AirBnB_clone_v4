@@ -18,37 +18,35 @@ $(document).ready(function () {
     if (data.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
-      $('#api_status').removeClass('available');
+      $('#api_status').toggleClass('available');
     }
   });
   //Stuff for task 4 goes here
   $.ajax({
+    url: 'http://0.0.0.0:5001/api/v1/places_search/',
     type: 'POST',
-    url: 'http://0.0.0.0:5001/api/v1/places_search',
-    contentType: 'application/json; charset=UTF-8',
     dataType: 'json',
-    data: '{}',
+    contentType: 'application/json',
+    data: JSON.stringify({}),
     success: function(data) {
-        for (const place of data) {
-            let html = '';
-            html += '    <article>';
-            html += '      <div class="title_box">';
-            html += '        <h2>{{ place.name }}</h2>';
-            html += '        <div class="price_by_night">${{ place.price_by_night }}</div>';
-            html += '      </div>';
-            html += '      <div class="information">';
-            html += '        <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>';
-            html += '        <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>';
-            html += '        <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>';
-            html += '      </div>';
-            html += '      <div class="user">';
-            html += '        <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}';
-            html += '      </div>';
-            html += '      <div class="description">';
-            html += '        {{ place.description | safe }}';
-            html += '      </div>';
-            html += '    </article>';
+        $.each(data, function (key, value) {
+          $(`<article>
+              <div class="title_box">
+                <h2>${ value.name }</h2>
+                <div class="price_by_night">$${ value.price_by_night }</div>
+              </div>
+              <div class="information">
+                <div class="max_guest">${ value.max_guest } Guest{% if place.max_guest != 1 %}s{% endif %}</div>
+                <div class="number_rooms">${ value.number_rooms } Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
+                <div class="number_bathrooms">${ value.number_bathrooms } Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+              </div>
+              <div class="user">
+              </div>
+              <div class="description">
+                ${ place.description | safe }
+              </div>
+            </article>`).appendTo('.places');
+        });
         }
-    }
-  });
-});
+      });
+    });
