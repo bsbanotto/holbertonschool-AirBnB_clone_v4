@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
   const amenities = [];
   const amenitiesName = [];
-  $('li :checkbox').change(function() {
+  $('li :checkbox').change(function () {
     if (this.checked) {
       amenities.push($(this).attr('data-id'));
       amenitiesName.push($(this).attr('data-name'));
