@@ -164,7 +164,7 @@ David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twit
 Second part of Airbnb: Joann Vuong
 
 Fourth part of AirBnB:
-Sarah Mcgowan - [Github](https://github.com/GoldLion1011)
+Sarah McGowan - [Github](https://github.com/GoldLion1011)
 Ben Sbanotto - [Github](https://github.com/bsbanotto)
 
 ## License
