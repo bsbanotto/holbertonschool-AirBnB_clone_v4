@@ -18,7 +18,7 @@ $(document).ready(function () {
     if (data.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
-      $('#api_status').toggleClass('available');
+      $('#api_status').removeClass('available');
     }
   });
   // Stuff for task 4 goes here
